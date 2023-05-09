@@ -55,8 +55,16 @@ module.exports = {
         72: "4.5rem",
         80: "5rem",
       },
-      colors: {},
-      backgroundImage: {},
+      colors: {
+        blue: {
+          default: "#213A96",
+          deep: "#2A288D",
+        },
+      },
+      backgroundImage: {
+        valorant:
+          'url("https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt27a2b18fb5e75e1a/6020f68b3e70bb4c12c70712/Notice.jpg")',
+      },
     },
     screens: {
       "2xl": { max: "1535px" },
