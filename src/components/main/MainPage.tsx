@@ -209,7 +209,7 @@ const MainPage = () => {
             388
           </div>
           <div className="w-28 flex justify-center items-center text-blue-500">
-            -
+            63.0%
           </div>
         </div>
         <div className="flex text-gray-200 h-12 bg-slate-800">
