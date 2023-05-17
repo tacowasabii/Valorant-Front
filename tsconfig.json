@@ -17,7 +17,7 @@
     "baseUrl": "src",
     "paths": {
       "@apis/*": ["./apis/*"],
-      "@types/*": ["./@types/*"],
+      "types/*": ["./types/*"],
       "@components/*": ["./components/*"],
       "@constants/*": ["./constants/*"],
       "@features/*": ["./features/*"],
@@ -30,6 +30,6 @@
       "@seo/*": ["./seo/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/utils/supabase.ts"],
   "exclude": ["node_modules"]
 }

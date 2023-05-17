@@ -16,14 +16,14 @@ const MainPage = () => {
 
   useEffect(() => {
     const fetchPlayers = async () => {
-      const { data, error } = await supabase.from("kr_rank").select("*");
+      const { data: kr_rank, error } = await supabase
+        .from("kr_rank")
+        .select("*");
       if (error) console.error("Data fetch error:", error);
-      else setPlayers(data as playerRank[]);
+      else setPlayers(kr_rank as playerRank[]);
     };
     fetchPlayers();
   }, []);
-
-  console.log(players);
 
   return (
     <div className="bg-slate-900">
