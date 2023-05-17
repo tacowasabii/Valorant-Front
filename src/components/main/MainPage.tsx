@@ -1,7 +1,7 @@
-import { createClient } from "@supabase/supabase-js";
 import { svgRiot, svgSearch } from "@styles/svg";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import supabase from "@utils/supabase";
 
 type playerRank = {
   id: number;
@@ -12,17 +12,11 @@ type playerRank = {
 };
 
 const MainPage = () => {
-  const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL as string,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY as string
-  );
-
-  console.log(supabase);
   const [players, setPlayers] = useState<playerRank[]>([]);
 
   useEffect(() => {
     const fetchPlayers = async () => {
-      const { data, error } = await supabase?.from("kr_rank").select("*");
+      const { data, error } = await supabase.from("kr_rank").select("*");
       if (error) console.error("Data fetch error:", error);
       else setPlayers(data as playerRank[]);
     };
