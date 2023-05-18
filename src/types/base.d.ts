@@ -16,3 +16,14 @@ type NextPageWithLayout = NextPage & {
 type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
 };
+import { ReactNode, ReactElement } from "react";
+import { NextPage as NextPageOriginal, NextPageContext } from "next";
+
+type LayoutComponent = (page: ReactElement) => ReactElement;
+
+export interface NextPageWithLayoutProps<P = {}, IP = P>
+  extends NextPageOriginal<P, IP> {
+  getLayout?: LayoutComponent;
+}
+
+export type NextPageContextWithLayout = NextPageContext;

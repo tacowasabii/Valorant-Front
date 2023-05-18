@@ -1,22 +1,8 @@
 import { svgRiot, svgSearch } from "@styles/svg";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import supabase from "@utils/supabase";
+import { NextPage } from "next";
 
-const MainPage = () => {
-  const [players, setPlayers] = useState<playerRank[]>([]);
-
-  useEffect(() => {
-    const fetchPlayers = async () => {
-      const { data: kr_rank, error } = await supabase
-        .from("kr_rank")
-        .select("*");
-      if (error) console.error("Data fetch error:", error);
-      else setPlayers(kr_rank as playerRank[]);
-    };
-    fetchPlayers();
-  }, []);
-
+const SsrPage: NextPage<playerProps> = ({ players }) => {
   return (
     <div className="bg-slate-900">
       <div className="xl:min-h-[430px] min-h-[500px] bg-valorant flex flex-col items-center bg-center bg-cover">
@@ -78,4 +64,4 @@ const MainPage = () => {
   );
 };
 
-export default MainPage;
+export default SsrPage;
