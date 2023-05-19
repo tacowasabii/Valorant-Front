@@ -1,9 +1,10 @@
-import { ReactElement } from "react";
+import { ReactElement, useEffect } from "react";
 import { Layout } from "@components/common";
 import { GetStaticProps } from "next";
 import supabase from "@utils/supabase";
 import { IsrPage } from "@components/main";
 import { NextPageWithLayoutProps } from "types/base";
+import axios from "axios";
 
 export const getStaticProps: GetStaticProps<playerProps> = async () => {
   const { data: kr_rank, error } = await supabase.from("kr_rank").select("*");
@@ -23,6 +24,20 @@ export const getStaticProps: GetStaticProps<playerProps> = async () => {
 const Isr: NextPageWithLayoutProps<playerProps> & {
   getLayout?: (page: ReactElement) => ReactElement;
 } = ({ players }: playerProps) => {
+  useEffect(() => {
+    const revalidateData = async () => {
+      const secret = process.env.SECRET_REVALIDATE_TOKEN;
+
+      try {
+        await axios.post("/api/revalidate", { secret });
+      } catch (error) {
+        console.error("Revalidation error:", error);
+      }
+    };
+
+    revalidateData();
+  }, []);
+
   return <IsrPage players={players} />;
 };
 
