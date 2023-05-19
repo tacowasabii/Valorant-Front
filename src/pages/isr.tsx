@@ -29,7 +29,7 @@ const Isr: NextPageWithLayoutProps<playerProps> & {
       const secret = process.env.NEXT_PUBLIC_SECRET_REVALIDATE_TOKEN;
 
       try {
-        await axios.post("/api/revalidate", { secret });
+        await axios.post(`/api/revalidate?secret=${secret}`);
       } catch (error) {
         console.error("Revalidation error:", error);
       }
