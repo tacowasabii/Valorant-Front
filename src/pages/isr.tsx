@@ -26,7 +26,7 @@ const Isr: NextPageWithLayoutProps<playerProps> & {
 } = ({ players }: playerProps) => {
   useEffect(() => {
     const revalidateData = async () => {
-      const secret = process.env.SECRET_REVALIDATE_TOKEN;
+      const secret = process.env.NEXT_PUBLIC_SECRET_REVALIDATE_TOKEN;
 
       try {
         await axios.post("/api/revalidate", { secret });
