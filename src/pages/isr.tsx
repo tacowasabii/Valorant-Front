@@ -17,6 +17,7 @@ export const getStaticProps: GetStaticProps<playerProps> = async () => {
 
   return {
     props: { players },
+    revalidate: 60,
   };
 };
 
