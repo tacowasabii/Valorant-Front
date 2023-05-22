@@ -30,6 +30,12 @@
       "@seo/*": ["./seo/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/utils/supabase.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "src/utils/supabase.ts",
+    "src/pages/api/revalidateOnDataChange.js"
+  ],
   "exclude": ["node_modules"]
 }
