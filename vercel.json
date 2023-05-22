@@ -1,7 +1,7 @@
 {
   "functions": {
     "api/revalidateOnDataChange.js": {
-      "runtime": "nodejs17.x"
+      "runtime": "nodejs18.x"
     }
   }
 }
