@@ -35,7 +35,7 @@
     "**/*.ts",
     "**/*.tsx",
     "src/utils/supabase.ts",
-    "src/pages/api/revalidateOnDataChange.js"
+    "api/revalidateOnDataChange.js"
   ],
   "exclude": ["node_modules"]
 }
